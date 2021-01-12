@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const user = 'tc'+process.argv[2]+'@yopmail.com';
+const user = process.argv[2]+'@yopmail.com';
 const timeout = parseInt(process.argv[3]) || 8000;
 console.log(user);
 (async () => {

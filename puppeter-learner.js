@@ -1,11 +1,11 @@
 const puppeteer = require('puppeteer');
-const user = 'lb'+process.argv[2]+'@yopmail.com';
+const user = process.argv[2]+'@yopmail.com';
 const timeout = parseInt(process.argv[3]) || 8000;
 console.log(user);
 
 (async () => {
   // Running in chrome visual browser
-  const browser = await puppeteer.launch({ headless: false })
+  const browser = await puppeteer.launch({ headless: true })
   // const browser = await puppeteer.launch()
   const page = await browser.newPage()
   
@@ -37,15 +37,15 @@ console.log(user);
   
   await page.type('#nemo-register-learner > #gigya-register-form #gigya-password-56383998600152700', 'Compro11')
   
-  await page.type('#nemo-register-learner > #gigya-register-form #gigya-textbox-31541372373165936', 'India')
+  // await page.type('#nemo-register-learner > #gigya-register-form #gigya-textbox-31541372373165936', 'India')
   
-  await page.waitForSelector('.content-wrapper > .content > .row-wrapper > div > .row')
-  await page.click('.content-wrapper > .content > .row-wrapper > div > .row')
+  // await page.waitForSelector('.content-wrapper > .content > .row-wrapper > div > .row')
+  // await page.click('.content-wrapper > .content > .row-wrapper > div > .row')
   
   await page.waitForSelector('#gigya-register-form > .gigya-layout-row > .gigya-composite-control > .term > .gigya-label #nemo_checkbox')
   await page.click('#gigya-register-form > .gigya-layout-row > .gigya-composite-control > .term > .gigya-label #nemo_checkbox')
   
-  await page.waitForSelector('#gigya-register-form > .gigya-layout-row > .gigya-composite-control > .term > .gigya-label #nemo_checkbox')
+  // await page.waitForSelector('#gigya-register-form > .gigya-layout-row > .gigya-composite-control > .term > .gigya-label #nemo_checkbox')
   await page.waitFor(timeout);
   await page.keyboard.sendCharacter(String.fromCharCode(13));
   // Shortcut for Enter Key
